@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Home, Clock, PiggyBank, User } from "lucide-react";
-import { DashboardSection } from "./DashboardLayout"; // import the union type
+import { DashboardSection } from "./DashboardLayout";
 
 interface NavItem {
   id: DashboardSection;
@@ -34,8 +34,6 @@ export default function Sidebar({ active, setActive }: SidebarProps) {
         animate={{ width: 76 }}
         className="hidden sm:flex fixed left-0 top-0 bottom-0 bg-[#101010] shadow-lg z-40 flex-col items-center py-6 border-r border-white/5"
       >
-        {/* Logo */}
-    
         {/* Navigation */}
         <nav className="flex flex-col gap-4 w-full items-center">
           {navItems.map((item) => {
@@ -55,7 +53,6 @@ export default function Sidebar({ active, setActive }: SidebarProps) {
                   <Icon size={20} />
                 </button>
 
-                {/* Tooltip */}
                 <div className="absolute left-14 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 bg-[#2a2a2a]/90 text-white text-xs rounded-md px-3 py-1 shadow-md whitespace-nowrap pointer-events-none backdrop-blur-sm">
                   {item.name}
                 </div>
@@ -64,19 +61,16 @@ export default function Sidebar({ active, setActive }: SidebarProps) {
           })}
         </nav>
 
-        {/* Footer */}
-        <div className="mt-auto mb-2 text-[10px] text-gray-500">v1.0 • UI</div>
+        <div className="mt-auto mb-2 text-[10px] text-gray-500">v1.0</div>
       </motion.aside>
 
       {/* Mobile Top Bar */}
       <div className="sm:hidden fixed top-0 left-0 right-0 z-50 bg-[#0b0b0b]/90 backdrop-blur-md border-b border-white/10 px-5 py-4 flex items-center justify-between">
-        {/* Logo */}
         <h1 className="text-lg font-semibold tracking-wide">
           <span className="text-green-500">Flex</span>
           <span className="text-white">Vest</span>
         </h1>
 
-        {/* Hamburger Icon */}
         <button
           onClick={() => setIsOpen((prev) => !prev)}
           className="p-2.5 rounded-md bg-white/5 hover:bg-white/10 text-white transition border border-white/10"
@@ -89,7 +83,6 @@ export default function Sidebar({ active, setActive }: SidebarProps) {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Background Overlay */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -98,7 +91,6 @@ export default function Sidebar({ active, setActive }: SidebarProps) {
               className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40"
             />
 
-            {/* Slide-in Menu */}
             <motion.div
               initial={{ x: -260 }}
               animate={{ x: 0 }}
@@ -106,7 +98,6 @@ export default function Sidebar({ active, setActive }: SidebarProps) {
               transition={{ type: "tween", duration: 0.25 }}
               className="fixed top-0 left-0 bottom-0 w-[240px] bg-[#121212]/95 backdrop-blur-md border-r border-white/10 shadow-xl z-50 flex flex-col py-8 px-6"
             >
-              {/* Logo inside Drawer */}
               <div className="mb-10">
                 <h1 className="text-lg font-semibold tracking-wide">
                   <span className="text-green-500">Flex</span>
@@ -114,7 +105,6 @@ export default function Sidebar({ active, setActive }: SidebarProps) {
                 </h1>
               </div>
 
-              {/* Navigation */}
               <nav className="flex flex-col gap-5">
                 {navItems.map((item) => {
                   const Icon = item.icon;

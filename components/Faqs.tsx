@@ -82,7 +82,7 @@ const FAQ = () => {
               ) : (
                 <Plus className="text-purple-600 transition-transform" size={22} />
               )}
-            </div>
+            </div> 
 
             <AnimatePresence>
               {activeIndex === i && (
